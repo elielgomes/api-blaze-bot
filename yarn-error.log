@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Nova Singular\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D @types/dayjs
+  C:\Program Files\nodejs\node.exe C:\Users\Nova Singular\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Users\Nova Singular\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.11;C:\Users\Nova Singular\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\Nova Singular\AppData\Local\Programs\Python\Python311\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Nova Singular\AppData\Local\Microsoft\WindowsApps;;C:\Users\Nova Singular\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Nova Singular\.dotnet\tools;C:\Users\Nova Singular\AppData\Roaming\npm
@@ -14,17 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@types%2fdayjs: Not found
-      at params.callback [as _callback] (C:\Users\Nova Singular\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66145:18)
-      at self.callback (C:\Users\Nova Singular\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140890:22)
-      at Request.emit (node:events:513:28)
-      at Request.<anonymous> (C:\Users\Nova Singular\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141862:10)
-      at Request.emit (node:events:513:28)
-      at IncomingMessage.<anonymous> (C:\Users\Nova Singular\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141784:12)
-      at Object.onceWrapper (node:events:627:28)
-      at IncomingMessage.emit (node:events:525:35)
-      at endReadableNT (node:internal/streams/readable:1359:12)
-      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Nova Singular\Documents\Projects\api-blaze-bot\node_modules\prisma\engines\d9a4c5988f480fa576d43970d5a23641aa77bc9c\query_engine-windows.dll.node'
 
 npm manifest: 
   {
@@ -45,7 +35,8 @@ npm manifest:
       "dotenv": "^16.0.3",
       "express": "^4.18.2",
       "jsonwebtoken": "^9.0.0",
-      "mongoose": "^7.2.1"
+      "mongoose": "^7.2.1",
+  				"uuid": "^9.0.0"
     },
     "devDependencies": {
       "@types/bcrypt": "^5.0.0",
@@ -249,6 +240,11 @@ Lockfile:
     dependencies:
       "@types/mime" "*"
       "@types/node" "*"
+  
+  "@types/uuid@8.3.4":
+    version "8.3.4"
+    resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
+    integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
   
   "@types/webidl-conversions@*":
     version "7.0.0"
@@ -1417,6 +1413,19 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
     integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
+  
+  uuid@8.3.2:
+    version "8.3.2"
+    resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+    integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
+  
+  uuidv4@^6.2.13:
+    version "6.2.13"
+    resolved "https://registry.yarnpkg.com/uuidv4/-/uuidv4-6.2.13.tgz#8f95ec5ef22d1f92c8e5d4c70b735d1c89572cb7"
+    integrity sha512-AXyzMjazYB3ovL3q051VLH06Ixj//Knx7QnUSi1T//Ie3io6CpsPu9nVMOx5MoLWh6xV0B9J0hIaxungxXUbPQ==
+    dependencies:
+      "@types/uuid" "8.3.4"
+      uuid "8.3.2"
   
   v8-compile-cache-lib@^3.0.1:
     version "3.0.1"

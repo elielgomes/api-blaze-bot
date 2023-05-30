@@ -1,16 +1,21 @@
 import { Router } from "express";
-import AuthenticateUser from "./middlewares/authenticateUser";
-import UserController from "./controllers/userController";
+
+// -----------------------------
+import createUserController from "./useCases/CreateUser";
+import authenticateUserController from "./useCases/AuthenticateUser";
+import refreshTokenUserController from "./useCases/RefreshTokenUser";
+// ----------------------------
+import CheckUserTokenMiddleware from "./middlewares/CheckUserTokenMiddleware";
+//-----------------------------
 
 export const router = Router();
 
-// Endpoints Routes
-
-router.post("/api/register", UserController.register);
-router.post("/api/login", UserController.login);
-router.get("/api/user/:id", AuthenticateUser.checkToken, AuthenticateUser.validateUserId, UserController.getUserById);
-router.post("/api/refresh-token", UserController.refreshToken);
-
-router.get("/api/teste", AuthenticateUser.checkToken, (req, res) => {
+//Public Routes ---------------------->>
+router.post("/api/register", (req, res) => createUserController.handle(req, res));
+router.post("/api/login", (req, res) => authenticateUserController.handle(req, res));
+router.post("/api/refresh-token", (req, res) => refreshTokenUserController.handle(req, res))
+//Private Routes ---------------------->>
+router.get("/api/teste", CheckUserTokenMiddleware.handle, (req, res) => {
   res.status(200).json({ msg: "sucesso!" });
-})
+})                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+

@@ -1,6 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import * as jwt from "jsonwebtoken";
-import { ITokenPayload } from "../interfaces";
+
+export interface ITokenPayload {
+  userId: string;
+  iat: number;
+  exp: number;
+}
 
 class AuthenticateUser {
 
@@ -18,7 +23,7 @@ class AuthenticateUser {
       jwt.verify(token, secret);
       next();
     } catch (error) {
-      res.status(401).json({ error: "Acess denied!" });
+      return res.status(401).json({ error: "Acess denied!" });
     }
   }
 

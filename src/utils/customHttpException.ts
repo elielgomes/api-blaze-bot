@@ -1,4 +1,7 @@
-import { ICustomHttpException } from "../interfaces";
+export interface ICustomHttpException {
+  statusCode: number;
+  message: string;
+}
 
 class CustomHttpException extends Error implements ICustomHttpException {
 
